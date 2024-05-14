@@ -12,7 +12,7 @@ OUT_SIZE=512
 OUT_SIZE_SMALL=448
 OUT_SIZE_DOUBLE=1024
 
-BACKGROUNDS=blurple-circle blurple-squircle blurple-squircle-mac
+BACKGROUNDS=blurple-circle blurple-squircle blurple-squircle-mac blurple-square
 ICON_OUT=$(addsuffix .png,$(addprefix $(OUT_DIR)/icon_,$(BACKGROUNDS)))
 ICON_SMALL_OUT=$(OUT_DIR)/icon-small.png $(OUT_DIR)/icon-small-enabled.png $(OUT_DIR)/icon-small-disabled.png
 ICON_PATREON_OUT=$(OUT_DIR_PATREON)/icon-patreon-early.png $(OUT_DIR_PATREON)/icon-patreon-gold.png $(OUT_DIR_PATREON)/icon-patreon-platinum.png
