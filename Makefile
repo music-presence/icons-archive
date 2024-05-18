@@ -18,7 +18,8 @@ ICON_SMALL_OUT=$(OUT_DIR)/icon-small.png $(OUT_DIR)/icon-small-enabled.png $(OUT
 ICON_PATREON_OUT=$(OUT_DIR_PATREON)/icon-patreon-early.png $(OUT_DIR_PATREON)/icon-patreon-gold.png $(OUT_DIR_PATREON)/icon-patreon-platinum.png
 INSTALLER_WIZARD_OUT=$(OUT_DIR_INSTALLER)/installer-wizard.bmp
 INSTALLER_HEADER_OUT=$(OUT_DIR_INSTALLER)/installer-header.bmp
-INSTALLER_BMPS=$(INSTALLER_WIZARD_OUT) $(INSTALLER_HEADER_OUT)
+INSTALLER_DMG_OUT=$(OUT_DIR_INSTALLER)/installer-dmg.png
+INSTALLER_IMAGES_OUT=$(INSTALLER_WIZARD_OUT) $(INSTALLER_HEADER_OUT) $(INSTALLER_DMG_OUT)
 ICONS=$(ICON_OUT) $(ICON_SMALL_OUT) $(OUT_DIR)/icon-small-light.png
 ICONS_CONVERTED=$(patsubst $(OUT_DIR)/%.png,$(OUT_DIR_ICO)/%.ico,$(ICONS)) $(patsubst $(OUT_DIR)/%.png,$(OUT_DIR_ICNS)/%.icns,$(ICONS))
 ICONS_ALL=$(ICONS) $(ICONS_CONVERTED) $(OUT_DIR)/favicon.ico $(ICON_PATREON_OUT)
@@ -29,7 +30,7 @@ ICONS_ALL=$(ICONS) $(ICONS_CONVERTED) $(OUT_DIR)/favicon.ico $(ICON_PATREON_OUT)
 # By putting "black-circle" at the end the logo is trimmed to the background
 # and we don't need to trim it with another tool.
 
-all: clean $(DEPS) $(ICONS_ALL) symbols $(INSTALLER_BMPS)
+all: clean $(DEPS) $(ICONS_ALL) symbols $(INSTALLER_IMAGES_OUT)
 
 symbols: node_modules
 	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-x-light.png -i symbol-x-light -j -h $(OUT_SIZE) symbols.inkscape.svg
@@ -63,6 +64,13 @@ $(INSTALLER_HEADER_OUT):
 		-i $(basename $(notdir $@))\;$(basename $(notdir $@))-rect \
 		-j -h 57 -w 150 $(INKSCAPE_FILE)
 	magick $(patsubst %.bmp,%.png,$@) BMP3:$@
+
+# 1200x730, 144 = 72 * 2 DPI (required on Mac?)
+$(INSTALLER_DMG_OUT):
+	inkscape -o $@ \
+		-i $(basename $(notdir $@))\;$(basename $(notdir $@))-rect \
+		-j -h 730 -w 1200 $(INKSCAPE_FILE)
+	magick $@ -units "PixelsPerInch" -density 144 $@
 
 $(OUT_DIR)/favicon.ico: $(OUT_DIR)/icon-small.png
 	mkdir -p .tmp; \
