@@ -4,3 +4,5 @@ node_modules/
 build/
 package-lock.json
 src
+
+icons2.inkscape.svg

@@ -41,6 +41,10 @@ symbols: node_modules
 	magick $(OUT_DIR_SYMBOLS)/symbol-info-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-info-dark.png
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-info-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-info-light
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-info-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-info-dark
+	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-open-light.png -i symbol-open-light -j -h $(OUT_SIZE) symbols.inkscape.svg
+	magick $(OUT_DIR_SYMBOLS)/symbol-open-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-open-dark.png
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-open-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-open-light
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-open-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-open-dark
 	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-heart.png -i symbol-heart -j -h $(OUT_SIZE) symbols.inkscape.svg
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-heart.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-heart
 
