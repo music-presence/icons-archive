@@ -49,6 +49,10 @@ symbols: node_modules
 	magick $(OUT_DIR_SYMBOLS)/symbol-blitz-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-blitz-dark.png
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-blitz-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-blitz-light
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-blitz-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-blitz-dark
+	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-patreon-light.png -i symbol-patreon-light -j -h $(OUT_SIZE) symbols.inkscape.svg
+	magick $(OUT_DIR_SYMBOLS)/symbol-patreon-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-patreon-dark.png
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-patreon-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-patreon-light
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-patreon-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-patreon-dark
 	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-heart.png -i symbol-heart -j -h $(OUT_SIZE) symbols.inkscape.svg
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-heart.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-heart
 
