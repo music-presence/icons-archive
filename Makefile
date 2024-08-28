@@ -53,6 +53,10 @@ symbols: node_modules
 	magick $(OUT_DIR_SYMBOLS)/symbol-patreon-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-patreon-dark.png
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-patreon-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-patreon-light
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-patreon-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-patreon-dark
+	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-discord-light.png -i symbol-discord-light -j -h $(OUT_SIZE) symbols.inkscape.svg
+	magick $(OUT_DIR_SYMBOLS)/symbol-discord-light.png -channel RGB -negate $(OUT_DIR_SYMBOLS)/symbol-discord-dark.png
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-discord-light.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-discord-light
+	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-discord-dark.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-discord-dark
 	inkscape -o $(OUT_DIR_SYMBOLS)/symbol-heart.png -i symbol-heart -j -h $(OUT_SIZE) symbols.inkscape.svg
 	npx icon-gen -i $(OUT_DIR_SYMBOLS)/symbol-heart.png -o $(OUT_DIR_SYMBOLS) --ico --ico-name symbol-heart
 
