@@ -1,3 +1,7 @@
+> [!NOTE]
+> This repository contains old icons and code and is archived now.  
+> Visit [music-presence/icons](https://github.com/music-presence/icons) for the new repository.
+
 # Icons for Music Presence
 
 ## Requirements
